@@ -1,0 +1,15 @@
+{
+  "name": "weather_city",
+  "version": "1.0.0",
+  "description": "Clima de una ciudad desde la terminal",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gorydev",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "yargs": "^13.2.2"
+  }
+}
