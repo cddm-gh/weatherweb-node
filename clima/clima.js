@@ -1,3 +1,4 @@
+//libreria para hacer peticiones http
 const axios = require('axios');
 
 const getClimaLatLng = async(lat, lng) => {
