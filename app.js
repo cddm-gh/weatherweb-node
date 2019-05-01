@@ -1,6 +1,7 @@
 const argv = require('./config/yargs').argv;
 const lugar = require('./lugar/lugar');
 const clima = require('./clima/clima');
+const hora = require('./hora/hora');
 const colors = require('colors');
 
 
@@ -9,10 +10,14 @@ const getInfo = async(direccion) => {
     try {
         console.log(`Obteniendo información del clima en ${direccion}...`.green);
         const coords = await lugar.getLugarLatLng(direccion);
+        const hour = await hora.getHoraLatLng(coords.lat, coords.lng);
         const temp = await clima.getClimaLatLng(coords.lat, coords.lng);
+
 
         let weather = {
             direccion: coords.direccion,
+            hora: hour.formatted,
+            hora_abbr: hour.abbreviation,
             pronostico: temp.weather[0]['description'],
             temp: temp.main.temp,
             temp_min: temp.main.temp_min,
@@ -46,6 +51,7 @@ const getInfo = async(direccion) => {
 
             console.log(`=====> Lugar: ${resp.direccion} <=====`.yellow);
             console.log(`El pronotico es de: ${resp.pronostico} `.underline.white);
+            console.log(`Hora local: ${resp.hora} ${resp.hora_abbr}`);
             console.log('La temperatura actual es de: ' + colors.blue(`${resp.temp} `) + 'C°');
             console.log('La temperatura mínima: ' + colors.blue(`${resp.temp_min} `) + 'C°');
             console.log('La temperatura máxima: ' + colors.blue(`${resp.temp_max} `) + 'C°');
