@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <title>Clima del Mundo</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="row">
+            <h1 class="text-center">
+                Clima del Mundo
+            </h1>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+                <form id="myForm" onsubmit="arreglarPath()" method="post">
+                    <div class="form-group">
+
+                        <label for="dir">Indique la dirección</label>
+                        <input class="form-control" type="text" autocomplete="off" placeholder="dirección" id="dir" name="dir">
+                    </div>
+
+                    <button type="submit" id="btnBuscar" name="btnBuscar" class="btn btn-primary">
+                        Buscar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function arreglarPath() {
+            var action_src = "/buscar/" + document.getElementsByName("dir")[0].value;
+            var your_form = document.getElementById('myForm');
+            your_form.action = action_src;
+        }
+    </script>
+
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+</body>
+
+</html>
