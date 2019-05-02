@@ -1,31 +1,32 @@
 {
-  "name": "weather_city",
-  "version": "1.0.0",
-  "description": "Clima de una ciudad desde la terminal",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "gorydev",
-  "license": "ISC",
-  "dependencies": {
-    "axios": "^0.18.0",
-    "body-parser": "^1.19.0",
-    "express": "^4.16.4",
-    "hbs": "^4.0.4"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gorydev/weatherweb-node.git"
-  },
-  "keywords": [
-    "weather",
-    "web",
-    "node"
-  ],
-  "bugs": {
-    "url": "https://github.com/gorydev/weatherweb-node/issues"
-  },
-  "homepage": "https://github.com/gorydev/weatherweb-node#readme"
+    "name": "weather_city",
+    "version": "1.0.0",
+    "description": "Clima de una ciudad desde la terminal",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node app"
+    },
+    "author": "gorydev",
+    "license": "ISC",
+    "dependencies": {
+        "axios": "^0.18.0",
+        "body-parser": "^1.19.0",
+        "express": "^4.16.4",
+        "hbs": "^4.0.4"
+    },
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gorydev/weatherweb-node.git"
+    },
+    "keywords": [
+        "weather",
+        "web",
+        "node"
+    ],
+    "bugs": {
+        "url": "https://github.com/gorydev/weatherweb-node/issues"
+    },
+    "homepage": "https://github.com/gorydev/weatherweb-node#readme"
 }
