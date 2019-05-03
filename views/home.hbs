@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Clima del Mundo</title>
-</head>
-
-<body>
+{{> header}}
 
 
     <div class="container">
@@ -22,7 +11,7 @@
 
         <div class="row">
             <div class="col-md">
-                <form id="myForm" onsubmit="arreglarPath()" method="post">
+                <form id="myForm" action="/buscar" method="POST">
                     <div class="form-group">
 
                         <label for="dir">Indique la dirección</label>
@@ -36,102 +25,24 @@
             </div>
         </div>
 
-    <div class="row">
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{message}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="table-responsive">
-        
-            <table class="table table-bordered table-hover table-sm">
-                <caption>Resultados del clima</caption>
-                <thead class="thead-light">
-                    <tr>
-                        <th scope="col" class="text-center">Datos</th>
-                        <th class="text-center">Valores</th>
-                    </tr>
-                </thead>
-
-                <tr>
-                    <th scope="col">Dirección</th>
-                    <td class="text-center">{{direccion}}</td>
-                </tr>
-
-                <tr>
-                    <th scope="col">Hora</th>
-                    <td class="text-center">{{hora}} {{hora_abbr}}</td>
-                </tr>
-
-                <tr>
-                    <th scope="col">Pronóstico</th>
-                    <td class="text-center">{{pronostico}}</td>
-                </tr>
-
-                <tr>
-                    <th scope="col">Temperatura</th>
-                    <td class="text-center">{{temp}} &#8451;</td>
-                </tr>
-
-                <tr>
-                    <th scope="col">Temp Min</th>
-                    <td class="text-center">{{temp_min}} &#8451;</td>
-                </tr>
-
-                <tr>
-                    <th scope="col">Temp Max</th>
-                    <td class="text-center">{{temp_max}} &#8451;</td>
-                </tr>
-
-                <tr>
-                    <th scope="col">Presión</th>
-                    <td class="text-center">{{presion}} hPa</td>
-                </tr>
-
-                <tr>
-                    <th scope="col">Humedad</th>
-                    <td class="text-center">{{humedad}} %</td>
-                </tr>
-
-                <tr>
-                    <th scope="col">Viento</th>
-                    <td class="text-center">{{viento}} mts/seg</td>
-                
-                </tr>
-
-                <tr>
-                    <th scope="col">Dir Viento</th>
-                    <td class="text-center">{{dviento}}&#176;</td>
-                </tr>
-
-                <tr>
-                    <th scope="col">Nubosidad</th>
-                    <td class="text-center">{{nubosidad}} %</td>
-                </tr>
-
-            </table>
-            
-        </div>
-    </div>
+        {{!-- <div class="row">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{message}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        </div> --}}
 
     </div>
 
 
-    <script>
+    <!-- <script>
         function arreglarPath() {
             var action_src = "/buscar/" + document.getElementsByName("dir")[0].value;
             var your_form = document.getElementById('myForm');
             your_form.action = action_src;
         }
-    </script>
+    </script> -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-</body>
-
-</html>
+{{> footer}}

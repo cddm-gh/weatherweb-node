@@ -16,9 +16,11 @@ app.use(require('./routes/buscar'));
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-    res.render('home', {
-        name: 'Carlos Delgado',
-    });
+    res.render('home', {});
+})
+
+app.post('/', (req, res) => {
+    res.render('home', {});
 })
 
 app.listen(port, () => {

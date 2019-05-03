@@ -6,8 +6,9 @@ const clima = require('../clima/clima');
 const hora = require('../hora/hora');
 
 
-const getInfoHelper = async(direccion) => {
+const getInfoHelper = async(direc) => {
 
+    let direccion = decodeURIComponent(direc);
     try {
 
         const coords = await lugar.getLugarLatLng(direccion);
@@ -40,24 +41,20 @@ const getInfoHelper = async(direccion) => {
 
 }
 
-app.post('/buscar/:dir', async function(req, res) {
+app.post('/buscar', async function(req, res) {
 
-    let direccion = req.params.dir;
-    let encodedURL = encodeURI(direccion);
-
+    let direccion = req.body.dir;
+    let encodedURL = encodeURIComponent(direccion);
     const resp = await getInfoHelper(encodedURL);
-
-    // res.send({
-    //     resp
-    // });
+    let error = false;
 
     if (resp.ok === false) {
-        res.render('home', {
-            message: resp.message
-        });
+        error = true;
     }
 
-    res.render('home', {
+    res.render('resultados', {
+        error: error,
+        message: resp.message,
         direccion: resp.direccion,
         hora: resp.hora,
         hora_abbr: resp.hora_abbr,
